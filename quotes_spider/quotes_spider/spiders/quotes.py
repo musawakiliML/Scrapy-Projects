@@ -19,11 +19,7 @@ class QuotesSpider(scrapy.Spider):
             author = quote.xpath('.//*[@itemprop="author"]/text()').extract()
             tags = quote.xpath('.//*[@class="tag"]/text()').extract()
 
-            print('\n')
-            print(text)
-            print(author)
-            print(tags)
-            print('\n')
+            yield {"Quote": text, "Author": author, "Tags": tags}
 
         next_page_url = response.xpath(
             '//*[@class="next"]/a/@href').extract_first()

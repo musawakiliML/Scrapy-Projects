@@ -1,6 +1,5 @@
 import scrapy
 
-
 class QuotesSpider(scrapy.Spider):
     name = 'quotes'
     allowed_domains = ['quotes.toscrape.com']
@@ -10,9 +9,9 @@ class QuotesSpider(scrapy.Spider):
        # heading_tag = response.xpath("//h1/a/text()").extract_first()
        # tags = response.xpath('//*[@class="tag-item"]/a/text()').extract()
 
-        #  yield {'Heading tag': heading_tag, "Tags": tags}
+       # yield {'Heading tag': heading_tag, "Tags": tags}
 
-        # getting all the quotes
+       # getting all the quotes
         quotes = response.xpath('//*[@class="quote"]')
         for quote in quotes:
             text = quote.xpath('.//*[@itemprop="text"]/text()').extract()
